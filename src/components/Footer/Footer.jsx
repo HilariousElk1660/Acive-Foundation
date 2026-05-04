@@ -1,5 +1,7 @@
 import styles from "./Footer.module.css";
 
+const KIDS_IMG = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1400&q=80";
+
 export default function Footer() {
   return (
     <footer>

@@ -5,7 +5,6 @@ import Footer from "../../components/Footer/Footer";
 
 import BANNER_IMG from "./Images/banner.png";
 import GOODS_IMG from "./Images/img.png";
-const KIDS_IMG = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1400&q=80";
 
 const DONATION_AMOUNTS = [
   { label: "R50",   value: 50   },
@@ -32,7 +31,7 @@ const FIELDS = [
 
 const MAX_AMOUNT = 2500;
 
-export default function DonationPage() {
+export default function AboutUs() {
   const [form, setForm] = useState({ name: "", address: "", telephone: "", email: "" });
   const [donationType, setDonationType]   = useState("");
   const [donationAmount, setDonationAmount] = useState("");
@@ -128,7 +127,6 @@ export default function DonationPage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );

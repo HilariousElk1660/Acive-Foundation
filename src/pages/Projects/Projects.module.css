@@ -1,0 +1,203 @@
+.container {
+  font-family: 'Montserrat', 'Inter', -apple-system, sans-serif;
+  color: #000;
+  line-height: 1.4;
+  background-color: #fff;
+}
+
+.hero {
+  position: relative;
+  height: 550px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.heroNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0;
+  color: #fff; /* White title on dark overlay */
+  letter-spacing: -0.01em;
+}
+
+.projectsSection {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.sectionHeader {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.sectionDescription {
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  color: #000;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
+  margin-top: 50px;
+}
+
+.gridItem {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.gridImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gridImage:hover {
+  transform: scale(1.05);
+}
+
+.quoteSection {
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 0 30px;
+  text-align: left;
+}
+
+.quoteText {
+  font-size: 2.3rem;
+  line-height: 1.3;
+  color: #000;
+  font-weight: 400;
+}
+
+.quoteHighlight {
+  font-weight: 900;
+  color: #000;
+}
+
+.volunteerBanner {
+  max-width: 1000px;
+  margin: 60px auto 100px;
+  padding: 50px 60px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 35px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000;
+}
+
+.volunteerBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+}
+
+.volunteerContent {
+  position: relative;
+  z-index: 2;
+  max-width: 550px;
+}
+
+.volunteerTitle {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.volunteerText {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.volunteerSubtext {
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.volunteerAction {
+  position: relative;
+  z-index: 2;
+}
+
+.applyButton {
+  background-color: #ff8000;
+  color: white;
+  padding: 16px 45px;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .volunteerBanner {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .volunteerContent {
+    margin-bottom: 30px;
+  }
+}
