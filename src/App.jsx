@@ -5,8 +5,7 @@ import DonationPage from "./pages/About/AboutUs";
 function App() {
   return (
    <>
-   <Navbar />
-   <DonationPage />
+   <Home />
    </>
   )
 }

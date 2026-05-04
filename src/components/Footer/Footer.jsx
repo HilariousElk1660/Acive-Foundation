@@ -1,0 +1,68 @@
+import styles from "./Footer.module.css";
+
+export default function Footer() {
+  return (
+    <footer>
+        <div className={styles.secondaryHero}>
+        <img src={KIDS_IMG} alt="Children in community" />
+      </div>
+
+      <div className={styles.newsletterBar}>
+        <p>Become a partner in change today</p>
+        <input
+          className={styles.newsletterInput}
+          type="email"
+          placeholder="Type your email here"
+        />
+      </div>
+      <div className={styles.footer}>
+        <div className={styles.footerLogo}>
+          <span className={styles.logoBrand}>
+            <span>Active</span> Foundation
+          </span>
+          <div className={styles.tagline}>One Block Can Change A Nation</div>
+          <div className={styles.socialsLabel}>Check us out on our socials:</div>
+          <div className={styles.socials}>
+            <a href="#" aria-label="Instagram">
+              <i className="fa-brands fa-instagram" />
+            </a>
+            <a href="#" aria-label="Facebook">
+              <i className="fa-brands fa-facebook-f" />
+            </a>
+          </div>
+        </div>
+
+        <div className={styles.footerCol}>
+          <h4>Get Involved</h4>
+          <ul>
+            <li>Volunteer</li>
+            <li>Partner with us</li>
+          </ul>
+        </div>
+
+        <div className={styles.footerCol}>
+          <h4>Support</h4>
+          <ul>
+            <li>Donate</li>
+            <li>Corporate Giving</li>
+          </ul>
+        </div>
+
+        <div className={styles.footerCol}>
+          <h4>Contact Us</h4>
+          <ul>
+            <li>72 Marlborough Road, Springfield</li>
+            <li>tonsoflove@activefoundation.co.za</li>
+            <li>(011) 493 4805</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className={styles.footerBottomWrap}>
+        <div className={styles.footerBottom}>
+          Copyright ©2025 The Active Foundation. All rights reserved
+        </div>
+      </div>
+    </footer>
+  );
+}

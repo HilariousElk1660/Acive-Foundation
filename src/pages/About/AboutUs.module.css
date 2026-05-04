@@ -1,10 +1,5 @@
-/* =============================================
-   DonationPage.module.css
-   ============================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:ital,wght@0,300;0,400;1,300&display=swap');
 
-/* ─── RESET ─────────────────────────────────── */
 .page *,
 .page *::before,
 .page *::after {
@@ -19,10 +14,9 @@
   color: #000;
 }
 
-/* ─── HERO ───────────────────────────────────── */
 .hero {
   width: 100%;
-  min-height: 520px;
+  min-height: 523px;
   background: #b0aeae;
   display: flex;
   align-items: center;
@@ -45,7 +39,18 @@
   background: rgba(125, 123, 123, 0.55);
 }
 
-/* ─── MAIN SECTION ───────────────────────────── */
+.heroNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.heroNav .navbar {
+  position: relative;
+}
+
 .mainSection {
   max-width: 1200px;
   margin: 0 auto;
@@ -56,7 +61,6 @@
   align-items: start;
 }
 
-/* ─── LEFT IMAGE ─────────────────────────────── */
 .leftImage {
   width: 100%;
   border-radius: 20px;
@@ -71,7 +75,6 @@
   display: block;
 }
 
-/* ─── RIGHT COLUMN ───────────────────────────── */
 .rightCol {
   display: flex;
   flex-direction: column;
@@ -86,7 +89,6 @@
   color: #111;
 }
 
-/* ─── FORM CARD ──────────────────────────────── */
 .formCard {
   background: #e8e5e5;
   border-radius: 32px;
@@ -152,7 +154,6 @@
   font-style: normal;
 }
 
-/* ─── DONATION TOTAL ─────────────────────────── */
 .totalSection {
   margin-top: 4px;
   margin-bottom: 20px;
@@ -204,7 +205,6 @@
   text-align: right;
 }
 
-/* ─── DONATE BUTTON ──────────────────────────── */
 .donateBtn {
   width: 100%;
   height: 54px;
@@ -228,7 +228,6 @@
   transform: translateY(0);
 }
 
-/* ─── SECONDARY HERO ─────────────────────────── */
 .secondaryHero {
   width: 100%;
   min-height: 280px;
@@ -245,7 +244,6 @@
   filter: brightness(0.7);
 }
 
-/* ─── NEWSLETTER ─────────────────────────────── */
 .newsletterBar {
   background: #1a6b3a;
   padding: 28px 64px;
@@ -283,90 +281,6 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* ─── FOOTER ─────────────────────────────────── */
-.footer {
-  background: #fff;
-  padding: 40px 64px 20px;
-  display: grid;
-  grid-template-columns: 1.8fr 1fr 1fr 1.5fr;
-  gap: 32px;
-  border-top: 1px solid #eee;
-}
-
-.footerLogo .logoBrand {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: -0.5px;
-  display: block;
-  margin-bottom: 4px;
-}
-
-.footerLogo .logoBrand span {
-  font-style: italic;
-  border-bottom: 2.5px solid #000;
-}
-
-.footerLogo .tagline {
-  font-weight: 600;
-  font-size: 15px;
-  margin-bottom: 10px;
-}
-
-.footerLogo .socialsLabel {
-  font-size: 13px;
-  color: #444;
-  margin-bottom: 6px;
-}
-
-.footerLogo .socials {
-  display: flex;
-  gap: 12px;
-}
-
-.footerLogo .socials a {
-  font-size: 18px;
-  color: #111;
-  text-decoration: none;
-}
-
-.footerCol h4 {
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-.footerCol ul {
-  list-style: none;
-}
-
-.footerCol ul li {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-/* ─── FOOTER BOTTOM ──────────────────────────── */
-.footerBottomWrap {
-  padding: 0 64px;
-}
-
-.footerBottom {
-  text-align: center;
-  font-size: 12px;
-  color: #888;
-  padding: 16px 0 8px;
-  border-top: 1px solid #eee;
-  margin-top: 8px;
-}
-
-/* =============================================
-   RESPONSIVE BREAKPOINTS
-   ============================================= */
-
-/* ─── Tablet (≤ 1024px) ──────────────────────── */
 @media (max-width: 1024px) {
   .mainSection {
     grid-template-columns: 1fr 1.2fr;
@@ -382,22 +296,11 @@
     padding: 32px 28px;
   }
 
-  .footer {
-    grid-template-columns: 1fr 1fr;
-    padding: 32px 32px 16px;
-    gap: 24px;
-  }
-
-  .footerBottomWrap {
-    padding: 0 32px;
-  }
-
   .newsletterBar {
     padding: 24px 32px;
   }
 }
 
-/* ─── Small Tablet / Large Mobile (≤ 900px) ─── */
 @media (max-width: 900px) {
   .mainSection {
     grid-template-columns: 1fr;
@@ -432,18 +335,8 @@
     width: 100%;
     max-width: 100%;
   }
-
-  .footer {
-    grid-template-columns: 1fr 1fr;
-    padding: 28px 20px 12px;
-  }
-
-  .footerBottomWrap {
-    padding: 0 20px;
-  }
 }
 
-/* ─── Mobile (≤ 640px) ───────────────────────── */
 @media (max-width: 640px) {
   .hero {
     min-height: 300px;
@@ -522,19 +415,8 @@
     min-width: unset;
     height: 46px;
   }
-
-  .footer {
-    grid-template-columns: 1fr;
-    padding: 24px 16px 12px;
-    gap: 20px;
-  }
-
-  .footerBottomWrap {
-    padding: 0 16px;
-  }
 }
 
-/* ─── Extra Small (≤ 380px) ──────────────────── */
 @media (max-width: 380px) {
   .headline {
     font-size: 18px;

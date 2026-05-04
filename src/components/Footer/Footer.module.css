@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:ital,wght@0,300;0,400;1,300&display=swap');
+
+.footer {
+  background: #fff;
+  padding: 40px 64px 20px;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1.5fr;
+  gap: 32px;
+  border-top: 1px solid #eee;
+}
+
+.footerLogo .logoBrand {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.footerLogo .logoBrand span {
+  font-style: italic;
+  border-bottom: 2.5px solid #000;
+}
+
+.footerLogo .tagline {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.footerLogo .socialsLabel {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.footerLogo .socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footerLogo .socials a {
+  font-size: 18px;
+  color: #111;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.footerLogo .socials a:hover {
+  opacity: 0.65;
+}
+
+.footerLogo .socials svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footerCol h4 {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.footerCol ul {
+  list-style: none;
+}
+
+.footerCol ul li {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.footerBottomWrap {
+  padding: 0 64px;
+}
+
+.footerBottom {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  padding: 16px 0 8px;
+  border-top: 1px solid #eee;
+  margin-top: 8px;
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    grid-template-columns: 1fr 1fr;
+    padding: 32px 32px 16px;
+    gap: 24px;
+  }
+
+  .footerBottomWrap {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer {
+    grid-template-columns: 1fr 1fr;
+    padding: 28px 20px 12px;
+  }
+
+  .footerBottomWrap {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    grid-template-columns: 1fr;
+    padding: 24px 16px 12px;
+    gap: 20px;
+  }
+
+  .footerBottomWrap {
+    padding: 0 16px;
+  }
+}

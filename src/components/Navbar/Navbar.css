@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 45px 100px;
+  padding: 45px 100px !important;
   background-color: rgba(0, 0, 0, 0);
   color: #fff;
   font-family: 'Inter', sans-serif;
@@ -38,7 +38,7 @@
   background-color: #15643b;
   color: #fff;
   border: none;
-  padding: 15px 25px;
+  padding: 15px 25px !important;
   font-size: 15px;
   border-radius: 50px; 
   cursor: pointer;
