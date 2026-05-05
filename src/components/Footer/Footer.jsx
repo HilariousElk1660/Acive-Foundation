@@ -5,18 +5,24 @@ const KIDS_IMG = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w
 export default function Footer() {
   return (
     <footer>
-        <div className={styles.secondaryHero}>
+      <div className={styles.secondaryHero}>
         <img src={KIDS_IMG} alt="Children in community" />
       </div>
 
       <div className={styles.newsletterBar}>
         <p>Become a partner in change today</p>
-        <input
-          className={styles.newsletterInput}
-          type="email"
-          placeholder="Type your email here"
-        />
+        <div className={styles.newsletterForm}>
+          <input
+            className={styles.newsletterInput}
+            type="email"
+            placeholder="Type your email here"
+          />
+          <button className={styles.newsletterBtn} type="button">
+            Subscribe
+          </button>
+        </div>
       </div>
+
       <div className={styles.footer}>
         <div className={styles.footerLogo}>
           <span className={styles.logoBrand}>
