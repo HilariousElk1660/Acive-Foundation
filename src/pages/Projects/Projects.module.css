@@ -3,11 +3,16 @@
   color: #000;
   line-height: 1.4;
   background-color: #fff;
+  width: 100%;
+  overflow-x: hidden;
 }
 
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
 .hero {
   position: relative;
-  height: 550px;
+  height: clamp(280px, 48vw, 650px);
   width: 100%;
   display: flex;
   align-items: center;
@@ -38,49 +43,57 @@
   position: relative;
   z-index: 2;
   text-align: center;
+  padding: 0 clamp(14px, 5vw, 48px);
+  width: 100%;
 }
 
 .heroTitle {
-  font-size: 3.5rem;
+  /* Fluid: 1.15rem on tiny phones → 3.5rem on desktop */
+  font-size: clamp(1.15rem, 4.5vw, 3.5rem);
   font-weight: 900;
   margin: 0;
-  color: #fff; /* White title on dark overlay */
+  color: #fff;
   letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
+/* ═══════════════════════════════════════════
+   PROJECTS SECTION
+═══════════════════════════════════════════ */
 .projectsSection {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 0 30px;
+  max-width: min(1000px, 96vw);
+  margin: clamp(30px, 6vw, 60px) auto;
+  padding: 0 clamp(14px, 3.5vw, 30px);
   text-align: center;
 }
 
 .sectionHeader {
-  margin-bottom: 40px;
+  margin-bottom: clamp(20px, 4vw, 40px);
 }
 
 .sectionTitle {
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 3vw, 2rem);
   font-weight: 900;
   text-transform: uppercase;
-  margin-bottom: 15px;
+  margin-bottom: clamp(10px, 1.5vw, 15px);
   color: #000;
 }
 
 .sectionDescription {
   max-width: 750px;
   margin: 0 auto;
-  font-size: 1.05rem;
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
   color: #000;
   line-height: 1.5;
   font-weight: 400;
 }
 
+/* ── IMAGE GRID ── */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 35px;
-  margin-top: 50px;
+  gap: clamp(10px, 2.5vw, 35px);
+  margin-top: clamp(24px, 4vw, 50px);
 }
 
 .gridItem {
@@ -100,15 +113,18 @@
   transform: scale(1.05);
 }
 
+/* ═══════════════════════════════════════════
+   QUOTE SECTION
+═══════════════════════════════════════════ */
 .quoteSection {
-  max-width: 1000px;
-  margin: 80px auto;
-  padding: 0 30px;
+  max-width: min(1000px, 96vw);
+  margin: clamp(40px, 7vw, 80px) auto;
+  padding: 0 clamp(14px, 3.5vw, 30px);
   text-align: left;
 }
 
 .quoteText {
-  font-size: 2.3rem;
+  font-size: clamp(1.15rem, 3vw, 2.3rem);
   line-height: 1.3;
   color: #000;
   font-weight: 400;
@@ -119,18 +135,22 @@
   color: #000;
 }
 
+/* ═══════════════════════════════════════════
+   VOLUNTEER BANNER
+═══════════════════════════════════════════ */
 .volunteerBanner {
-  max-width: 1000px;
-  margin: 60px auto 100px;
-  padding: 50px 60px;
+  max-width: min(1000px, 96vw);
+  margin: clamp(30px, 5vw, 60px) auto clamp(50px, 8vw, 100px);
+  padding: clamp(28px, 4.5vw, 50px) clamp(20px, 5vw, 60px);
   background-size: cover;
   background-position: center;
-  border-radius: 35px;
+  border-radius: clamp(18px, 3vw, 35px);
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: clamp(20px, 3vw, 40px);
   color: #000;
 }
 
@@ -152,52 +172,276 @@
 }
 
 .volunteerTitle {
-  font-size: 2.2rem;
+  font-size: clamp(1.25rem, 2.8vw, 2.2rem);
   font-weight: 900;
-  margin-bottom: 15px;
+  margin-bottom: clamp(8px, 1.2vw, 15px);
   color: #000;
+  line-height: 1.2;
 }
 
 .volunteerText {
-  font-size: 1.05rem;
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
   margin-bottom: 8px;
   font-weight: 400;
 }
 
 .volunteerSubtext {
-  font-size: 1.05rem;
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
   font-weight: 400;
 }
 
 .volunteerAction {
   position: relative;
   z-index: 2;
+  flex-shrink: 0;
 }
 
 .applyButton {
   background-color: #ff8000;
   color: white;
-  padding: 16px 45px;
+  padding: clamp(12px, 1.5vw, 16px) clamp(24px, 3.5vw, 45px);
   border-radius: 50px;
   font-weight: 800;
-  font-size: 1rem;
+  font-size: clamp(0.82rem, 1.1vw, 1rem);
   border: none;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   transition: transform 0.2s ease, background-color 0.2s ease;
+  white-space: nowrap;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
 }
 
+.applyButton:hover {
+  background-color: #e67300;
+  transform: scale(1.03);
+}
+
+.applyButton:active {
+  background-color: #cc6600;
+  transform: scale(0.98);
+}
+
+/* ═══════════════════════════════════════════
+   DEVICE BREAKPOINTS
+   clamp() handles fluid scaling between these.
+   Queries only handle structural layout shifts.
+═══════════════════════════════════════════ */
+
+/* ── Ultra-wide / 4K (2560px+) ── */
+@media (min-width: 2560px) {
+  .projectsSection,
+  .quoteSection,
+  .volunteerBanner {
+    max-width: 1400px;
+  }
+
+  .hero {
+    height: 780px;
+  }
+}
+
+/* ── Wide desktop (1600px–2559px) ── */
+@media (min-width: 1600px) and (max-width: 2559px) {
+  .projectsSection,
+  .quoteSection,
+  .volunteerBanner {
+    max-width: 1200px;
+  }
+}
+
+/* ── Tablet landscape / small laptop (≤1024px) ── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── iPad Mini / tablet portrait (≤900px) ── */
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .volunteerBanner {
     flex-direction: column;
     text-align: center;
-    padding: 40px 20px;
+    align-items: center;
   }
+
   .volunteerContent {
-    margin-bottom: 30px;
+    max-width: 100%;
+  }
+}
+
+/* ── Large phones / phablets landscape (≤767px) ── */
+@media (max-width: 767px) {
+  .quoteText {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+  }
+
+  .heroTitle {
+    font-size: clamp(1.1rem, 5.5vw, 1.8rem);
+  }
+}
+
+/* ── iPhone 14 Pro Max / Plus (≤430px) ── */
+@media (max-width: 430px) {
+  .hero {
+    height: clamp(260px, 72vw, 340px);
+  }
+
+  .heroTitle {
+    font-size: clamp(1.1rem, 6vw, 1.5rem);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .sectionTitle {
+    font-size: 1.4rem;
+  }
+
+  .sectionDescription {
+    font-size: 0.88rem;
+  }
+
+  .quoteText {
+    font-size: clamp(1.05rem, 5vw, 1.3rem);
+  }
+
+  .volunteerTitle {
+    font-size: 1.35rem;
+  }
+
+  .volunteerText,
+  .volunteerSubtext {
+    font-size: 0.88rem;
+  }
+
+  .applyButton {
+    padding: 14px 32px;
+    font-size: 0.88rem;
+  }
+}
+
+/* ── iPhone 14 / 13 / 12 Pro (≤390px) ── */
+@media (max-width: 390px) {
+  .heroTitle {
+    font-size: 1.1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+
+  .quoteText {
+    font-size: 1rem;
+  }
+
+  .volunteerTitle {
+    font-size: 1.2rem;
+  }
+
+  .volunteerBanner {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+}
+
+/* ── iPhone SE / 12 mini (≤375px) ── */
+@media (max-width: 375px) {
+  .hero {
+    height: 260px;
+  }
+
+  .heroTitle {
+    font-size: 1rem;
+    padding: 0 12px;
+  }
+
+  .projectsSection,
+  .quoteSection {
+    padding: 0 12px;
+  }
+
+  .sectionTitle {
+    font-size: 1.15rem;
+  }
+
+  .sectionDescription,
+  .volunteerText,
+  .volunteerSubtext {
+    font-size: 0.82rem;
+  }
+
+  .quoteText {
+    font-size: 0.95rem;
+  }
+
+  .volunteerTitle {
+    font-size: 1.1rem;
+  }
+
+  .grid {
+    gap: 8px;
+  }
+}
+
+/* ── Very small phones (≤320px) ── */
+@media (max-width: 320px) {
+  .hero {
+    height: 240px;
+  }
+
+  .heroTitle {
+    font-size: 0.95rem;
+  }
+
+  /* Single column grid on tiny screens */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .gridItem {
+    aspect-ratio: 16 / 9;
+  }
+
+  .sectionTitle {
+    font-size: 1.05rem;
+  }
+
+  .quoteText {
+    font-size: 0.9rem;
+  }
+
+  .volunteerBanner {
+    padding: 20px 14px;
+    border-radius: 14px;
+  }
+
+  .volunteerTitle {
+    font-size: 1rem;
+  }
+
+  .applyButton {
+    padding: 12px 24px;
+    font-size: 0.82rem;
+    width: 100%;
+  }
+}
+
+/* ── Landscape orientation on phones ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    height: clamp(200px, 50vh, 320px);
+  }
+
+  .heroTitle {
+    font-size: clamp(1rem, 3.5vw, 1.6rem);
   }
 }

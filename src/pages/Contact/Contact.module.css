@@ -3,19 +3,23 @@
   color: #000;
   line-height: 1.4;
   background-color: #f8f8f8;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* ── HERO ── */
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
 .hero {
   position: relative;
-  height: 650px;
+  /* Fluid height: 320px on phones → 750px on wide screens */
+  height: clamp(320px, 52vw, 750px);
   width: 100%;
-  /* background-color: #3d3d35; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 80px;
+  padding-top: clamp(56px, 9vw, 100px);
   overflow: hidden;
 }
 
@@ -28,81 +32,99 @@
 }
 
 .heroTitle {
-  font-size: 3.5rem;
+  /* Fluid: 1.15rem (tiny phone) → 3.8rem (desktop) */
+  font-size: clamp(1.15rem, 4.2vw, 3.8rem);
   font-weight: 900;
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: clamp(8px, 1.8vw, 22px);
   z-index: 2;
   text-align: center;
   letter-spacing: -0.01em;
+  padding: 0 clamp(14px, 5vw, 48px);
+  line-height: 1.18;
+  max-width: 92vw;
 }
 
 .phoneImageContainer {
-    width: 100%;
-    /* max-width: 900px; */
-    display: flex;
-    justify-content: center;
-    margin-top: -20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/src/assets/images/Rectangle77.png);
-    background-size: contain;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/src/assets/images/Rectangle77.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
 }
 
 .phoneImage {
   width: 100%;
   height: auto;
   max-height: 400px;
-  /* object-fit: contain; */
   mix-blend-mode: luminosity;
   opacity: 0.85;
 }
 
 .socialIcons {
   display: flex;
-  gap: 200px;
+  /* Gap scales from 40px on tiny phones to 200px on desktop */
+  gap: clamp(40px, 14vw, 200px);
   z-index: 99;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-top: clamp(10px, 1.8vw, 22px);
+  margin-bottom: clamp(16px, 3.5vw, 50px);
 }
 
 .icon {
-  font-size: 2.5rem;
   color: #ffffff;
-}
-
-/* ── MAIN SECTION ── */
-.mainSection {
-  max-width: 1100px;
-  margin: 0 auto 100px;
-  padding: 60px 40px;
   display: flex;
-  gap: 50px;
-  background-color: #fff;
+  align-items: center;
+  justify-content: center;
 }
 
+.icon svg {
+  /* Fluid icon size: 28px → 48px */
+  width: clamp(28px, 3.8vw, 48px);
+  height: clamp(28px, 3.8vw, 48px);
+}
+
+/* ═══════════════════════════════════════════
+   MAIN SECTION
+═══════════════════════════════════════════ */
+.mainSection {
+  width: 100%;
+  max-width: min(1100px, 96vw);
+  margin: 0 auto clamp(40px, 8vw, 100px);
+  padding: clamp(20px, 4.5vw, 60px) clamp(14px, 3.5vw, 40px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(20px, 4vw, 50px);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* ── LEFT COLUMN ── */
 .leftColumn {
-  flex: 1.1;
+  flex: 1 1 clamp(260px, 42%, 520px);
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: clamp(14px, 2.2vw, 30px);
+  min-width: 0;
 }
 
+/* ── INFO CARDS GRID ── */
 .infoGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: clamp(8px, 1.4vw, 20px);
 }
 
 .infoCard {
   background-color: #8db09a;
-  padding: 30px 15px;
-  border-radius: 15px;
+  padding: clamp(12px, 2.2vw, 30px) clamp(8px, 1.4vw, 15px);
+  border-radius: clamp(10px, 1.4vw, 15px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,21 +135,26 @@
 }
 
 .cardIcon {
-  margin-bottom: 12px;
+  margin-bottom: clamp(5px, 0.9vw, 13px);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.cardIcon svg {
+  width: clamp(20px, 2.8vw, 35px);
+  height: clamp(20px, 2.8vw, 35px);
+}
+
 .cardTitle {
   font-weight: 900;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
+  font-size: clamp(0.6rem, 1vw, 0.9rem);
+  margin-bottom: clamp(2px, 0.4vw, 6px);
   text-transform: uppercase;
 }
 
 .cardValue {
-  font-size: 0.95rem;
+  font-size: clamp(0.6rem, 1vw, 0.95rem);
   font-weight: 500;
   word-break: break-word;
   line-height: 1.3;
@@ -136,59 +163,63 @@
 /* ── MAP ── */
 .mapContainer {
   width: 100%;
-  border-radius: 20px;
+  border-radius: clamp(12px, 1.8vw, 20px);
   overflow: hidden;
-  height: 280px;
+  height: clamp(180px, 22vw, 300px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  margin-top: 10px;
+  flex-shrink: 0;
 }
 
 /* ── FORM ── */
 .formSection {
-  flex: 1;
+  flex: 1 1 clamp(260px, 42%, 520px);
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .formTitle {
-  font-size: 2.5rem;
+  font-size: clamp(1.3rem, 3.2vw, 2.5rem);
   font-weight: 900;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: clamp(10px, 1.8vw, 20px);
+  line-height: 1.1;
 }
 
 .formDescription {
-  font-size: 0.95rem;
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: clamp(16px, 2.8vw, 30px);
   font-weight: 500;
 }
 
 .formGroup {
-  margin-bottom: 20px;
+  margin-bottom: clamp(10px, 1.8vw, 20px);
 }
 
 .label {
   display: block;
   font-weight: 600;
-  margin-bottom: 8px;
-  font-size: 1rem;
+  margin-bottom: clamp(4px, 0.7vw, 10px);
+  font-size: clamp(0.82rem, 1.1vw, 1rem);
 }
 
 .input,
 .textarea {
   width: 100%;
-  padding: 15px 20px;
+  padding: clamp(10px, 1.4vw, 15px) clamp(12px, 1.8vw, 20px);
   border: 1.5px solid #000;
-  border-radius: 15px;
-  font-size: 1rem;
+  border-radius: clamp(10px, 1.4vw, 15px);
+  font-size: clamp(0.82rem, 1.1vw, 1rem);
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
+  /* Prevent iOS zoom on focus (font-size must be ≥ 16px equiv) */
+  -webkit-text-size-adjust: 100%;
 }
 
 .textarea {
-  height: 150px;
+  height: clamp(100px, 12vw, 160px);
   resize: none;
 }
 
@@ -204,33 +235,348 @@
   background-color: #ff8000;
   color: #fff;
   border: none;
-  padding: 18px;
+  padding: clamp(12px, 1.8vw, 18px);
   border-radius: 50px;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: clamp(0.85rem, 1.3vw, 1.1rem);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: clamp(6px, 1vw, 12px);
   transition: background-color 0.2s;
+  /* Tap target height min 44px for accessibility */
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .sendButton:hover {
   background-color: #e67300;
 }
 
-/* ── RESPONSIVE ── */
+.sendButton:active {
+  background-color: #cc6600;
+  transform: scale(0.99);
+}
+
+/* ═══════════════════════════════════════════
+   DEVICE-SPECIFIC MEDIA QUERIES
+
+   clamp() handles fluid scaling between these.
+   Queries only handle layout / structural shifts.
+═══════════════════════════════════════════ */
+
+/* ── Ultra-wide / 4K (2560px+) ── */
+@media (min-width: 2560px) {
+  .mainSection {
+    max-width: 1600px;
+  }
+
+  .hero {
+    height: 820px;
+  }
+}
+
+/* ── Wide desktop (1600px–2559px) ── */
+@media (min-width: 1600px) and (max-width: 2559px) {
+  .mainSection {
+    max-width: 1400px;
+  }
+}
+
+/* ── Standard desktop (1280px–1599px) ── */
+/* Default styles already handle this range well */
+
+/* ── Small laptop / large tablet landscape (1024px–1279px) ── */
+@media (max-width: 1279px) {
+  .mainSection {
+    max-width: 98vw;
+    padding: clamp(20px, 3.5vw, 50px) clamp(14px, 3vw, 36px);
+  }
+}
+
+/* ── iPad Pro 12.9" landscape & small laptops (1024px) ── */
+@media (max-width: 1024px) {
+  .mainSection {
+    gap: 32px;
+  }
+}
+
+/* ── iPad Pro 11" / iPad Air landscape (834px–1023px) ── */
+@media (max-width: 1023px) and (min-width: 835px) {
+  .infoCard {
+    aspect-ratio: auto;
+    min-height: 120px;
+  }
+}
+
+/* ── iPad Mini / iPad portrait & tablet (768px–900px) ── */
 @media (max-width: 900px) {
   .mainSection {
     flex-direction: column;
   }
 
+  .leftColumn,
+  .formSection {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .infoCard {
+    aspect-ratio: auto;
+    min-height: clamp(90px, 18vw, 140px);
+  }
+
+  .mapContainer {
+    height: clamp(200px, 35vw, 300px);
+  }
+}
+
+/* ── Large phones landscape / small tablets (600px–767px) ── */
+@media (max-width: 767px) {
+  .hero {
+    height: clamp(300px, 60vw, 420px);
+  }
+
+  .infoGrid {
+    gap: 12px;
+  }
+
+  .mapContainer {
+    height: 220px;
+  }
+}
+
+/* ── iPhone 14 Pro Max / Plus (430px) ── */
+@media (max-width: 430px) {
+  .hero {
+    height: clamp(300px, 80vw, 380px);
+  }
+
   .heroTitle {
-    font-size: 2.2rem;
-    padding: 0 20px;
+    font-size: clamp(1.1rem, 5.5vw, 1.55rem);
+    padding: 0 16px;
   }
 
   .socialIcons {
-    gap: 60px;
+    gap: 56px;
+  }
+
+  .mainSection {
+    padding: 24px 14px;
+    margin-bottom: 40px;
+  }
+
+  .infoGrid {
+    gap: 10px;
+  }
+
+  .infoCard {
+    aspect-ratio: auto;
+    min-height: 100px;
+    padding: 16px 10px;
+    border-radius: 12px;
+  }
+
+  .cardIcon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .cardTitle {
+    font-size: 0.7rem;
+  }
+
+  .cardValue {
+    font-size: 0.72rem;
+  }
+
+  .mapContainer {
+    height: 200px;
+    border-radius: 14px;
+  }
+
+  .formTitle {
+    font-size: 1.55rem;
+  }
+
+  .formDescription {
+    font-size: 0.85rem;
+  }
+
+  /* Prevent iOS zoom on input focus */
+  .input,
+  .textarea {
+    font-size: 16px;
+  }
+
+  .sendButton {
+    font-size: 0.95rem;
+  }
+}
+
+/* ── iPhone 14 / 13 / 12 Pro (390px) ── */
+@media (max-width: 390px) {
+  .heroTitle {
+    font-size: clamp(1rem, 6vw, 1.4rem);
+  }
+
+  .socialIcons {
+    gap: 48px;
+  }
+
+  .mainSection {
+    padding: 20px 12px;
+  }
+
+  .infoCard {
+    min-height: 94px;
+    padding: 14px 8px;
+  }
+
+  .cardTitle {
+    font-size: 0.65rem;
+  }
+
+  .cardValue {
+    font-size: 0.68rem;
+  }
+
+  .mapContainer {
+    height: 185px;
+  }
+
+  .formTitle {
+    font-size: 1.4rem;
+  }
+}
+
+/* ── iPhone SE 3rd gen / iPhone 12 mini (375px) ── */
+@media (max-width: 375px) {
+  .heroTitle {
+    font-size: 1.05rem;
+    padding: 0 12px;
+  }
+
+  .socialIcons {
+    gap: 40px;
+  }
+
+  .icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .infoCard {
+    min-height: 88px;
+    padding: 12px 8px;
+    border-radius: 10px;
+  }
+
+  .cardIcon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .mapContainer {
+    height: 175px;
+  }
+
+  .formTitle {
+    font-size: 1.3rem;
+  }
+
+  .formDescription {
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+  }
+
+  .formGroup {
+    margin-bottom: 10px;
+  }
+
+  .textarea {
+    height: 100px;
+  }
+}
+
+/* ── Very small / older phones (320px) ── */
+@media (max-width: 320px) {
+  .hero {
+    height: 290px;
+  }
+
+  .heroTitle {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+
+  .socialIcons {
+    gap: 30px;
+  }
+
+  /* Switch info cards to single column with horizontal layout */
+  .infoGrid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .infoCard {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    text-align: left;
+    min-height: unset;
+    aspect-ratio: auto;
+    border-radius: 10px;
+  }
+
+  .cardIcon {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .cardIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cardTitle {
+    font-size: 0.65rem;
+  }
+
+  .cardValue {
+    font-size: 0.7rem;
+  }
+
+  .mapContainer {
+    height: 160px;
+  }
+
+  .formTitle {
+    font-size: 1.2rem;
+  }
+
+  .mainSection {
+    padding: 16px 10px;
+  }
+}
+
+/* ── Landscape orientation on phones ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    height: clamp(220px, 48vh, 340px);
+    padding-top: 50px;
+  }
+
+  .heroTitle {
+    font-size: clamp(1rem, 3.5vw, 1.6rem);
+    margin-bottom: 8px;
+  }
+
+  .socialIcons {
+    margin-bottom: 10px;
+    margin-top: 8px;
   }
 }
