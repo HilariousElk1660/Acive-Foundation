@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import styles from "./AboutUs.module.css";
 import Footer from "../../components/Footer/Footer";
+import styles from "./AboutUs.module.css";
 
 import BANNER_IMG from "./Images/banner.png";
 import GOODS_IMG from "./Images/img.png";
+
+// ── Constants ──────────────────────────────────────────────────────────────────
 
 const DONATION_AMOUNTS = [
   { label: "R50",   value: 50   },
@@ -23,17 +25,19 @@ const DONATION_TYPES = [
 ];
 
 const FIELDS = [
-  { label: "Your name",    key: "name",      placeholder: "e.g Nina"                          },
-  { label: "Your address", key: "address",   placeholder: "73 Eagle East Road, Parktown"      },
-  { label: "Telephone",    key: "telephone", placeholder: "e.g (+27) 123-5678"                },
-  { label: "Email",        key: "email",     placeholder: "e.g nina@activefoundation.co.za"   },
+  { label: "Your name",    key: "name",      placeholder: "e.g Nina"                        },
+  { label: "Your address", key: "address",   placeholder: "73 Eagle East Road, Parktown"    },
+  { label: "Telephone",    key: "telephone", placeholder: "e.g (+27) 123-5678"              },
+  { label: "Email",        key: "email",     placeholder: "e.g nina@activefoundation.co.za" },
 ];
 
 const MAX_AMOUNT = 2500;
 
+// ── Component ──────────────────────────────────────────────────────────────────
+
 export default function AboutUs() {
-  const [form, setForm] = useState({ name: "", address: "", telephone: "", email: "" });
-  const [donationType, setDonationType]   = useState("");
+  const [form, setForm]               = useState({ name: "", address: "", telephone: "", email: "" });
+  const [donationType, setDonationType]     = useState("");
   const [donationAmount, setDonationAmount] = useState("");
 
   const selectedAmt = DONATION_AMOUNTS.find((a) => a.label === donationAmount);
@@ -42,8 +46,13 @@ export default function AboutUs() {
   const handleChange = (key) => (e) =>
     setForm((prev) => ({ ...prev, [key]: e.target.value }));
 
+  const selectClass = (hasValue) =>
+    `${styles.fieldSelect}${hasValue ? ` ${styles.hasValue}` : ""}`;
+
   return (
     <div className={styles.page}>
+
+      {/* ── Hero ── */}
       <section className={styles.hero}>
         <img className={styles.heroImg} src={BANNER_IMG} alt="Hands holding a heart" />
         <div className={styles.heroOverlay} />
@@ -52,7 +61,9 @@ export default function AboutUs() {
         </div>
       </section>
 
+      {/* ── Main content ── */}
       <section className={styles.mainSection}>
+
         <div className={styles.leftImage}>
           <img src={GOODS_IMG} alt="Donation goods in reusable bags" />
         </div>
@@ -65,6 +76,8 @@ export default function AboutUs() {
 
           <div className={styles.formCard}>
             <div className={styles.formGrid}>
+
+              {/* Personal detail fields */}
               {FIELDS.map(({ label, key, placeholder }) => (
                 <div className={styles.fieldGroup} key={key}>
                   <label className={styles.fieldLabel}>{label}</label>
@@ -78,10 +91,11 @@ export default function AboutUs() {
                 </div>
               ))}
 
+              {/* Donation type */}
               <div className={styles.fieldGroup}>
                 <label className={styles.fieldLabel}>Donation type</label>
                 <select
-                  className={`${styles.fieldSelect}${donationType ? ` ${styles.hasValue}` : ""}`}
+                  className={selectClass(donationType)}
                   value={donationType}
                   onChange={(e) => setDonationType(e.target.value)}
                 >
@@ -92,30 +106,30 @@ export default function AboutUs() {
                 </select>
               </div>
 
+              {/* Donation amount */}
               <div className={styles.fieldGroup}>
                 <label className={styles.fieldLabel}>Donation amount</label>
                 <select
-                  className={`${styles.fieldSelect}${donationAmount ? ` ${styles.hasValue}` : ""}`}
+                  className={selectClass(donationAmount)}
                   value={donationAmount}
                   onChange={(e) => setDonationAmount(e.target.value)}
                 >
                   <option value="" disabled>Select donation amount</option>
-                  {DONATION_AMOUNTS.map((a) => (
-                    <option key={a.label} value={a.label}>{a.label}</option>
+                  {DONATION_AMOUNTS.map(({ label }) => (
+                    <option key={label} value={label}>{label}</option>
                   ))}
                 </select>
               </div>
+
             </div>
 
+            {/* Donation progress bar */}
             <div className={styles.totalSection}>
               <div className={styles.totalLabel}>Donation total:</div>
               <div className={styles.totalBarWrap}>
                 <div className={styles.dotGreen} />
                 <div className={styles.totalBar}>
-                  <div
-                    className={styles.totalBarFill}
-                    style={{ width: `${fillPct}%` }}
-                  />
+                  <div className={styles.totalBarFill} style={{ width: `${fillPct}%` }} />
                 </div>
                 {selectedAmt && (
                   <div className={styles.totalAmount}>{donationAmount}</div>
@@ -126,7 +140,9 @@ export default function AboutUs() {
             <button className={styles.donateBtn}>Donate Now</button>
           </div>
         </div>
+
       </section>
+
       <Footer />
     </div>
   );
