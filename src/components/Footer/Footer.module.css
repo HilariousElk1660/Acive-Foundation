@@ -3,7 +3,6 @@
 /* ── Hero image ────────────────────────────────────────────── */
 .secondaryHero {
   width: 100%;
-  min-height: 280px;
   background: #555;
   overflow: hidden;
   position: relative;
