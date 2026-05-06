@@ -1,24 +1,42 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
-import Navbar from '../../components/Navbar/Navbar'
-import Footer from '../../components/Footer/Footer'
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 const Contact = () => {
+  const formRef = useRef();
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    emailjs
+      .sendForm(
+        'service_qrqtob7',       // Your Service ID
+        'template_9nlzm7t',       // ← Replace with your Template ID
+        formRef.current,
+        'ZLpJZ7CehgqhiGYpW'         // ← Replace with your EmailJS Public Key
+      )
+      .then(() => {
+        setStatus('success');
+        formRef.current.reset();
+      })
+      .catch(() => {
+        setStatus('error');
+      });
+  };
+
   return (
     <div className={styles.container}>
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroNav}>
-                          <Navbar />
-                        </div>
-        <h1 className={styles.heroTitle}>Get In Touch. Make a Difference.</h1>
-        <div className={styles.phoneImageContainer}>
-          {/* <img 
-            src="/src/assets/images/Rectangle 77.png" 
-            alt="Vintage Telephone" 
-            className={styles.phoneImage}
-          /> */}
+          <Navbar />
         </div>
+        <h1 className={styles.heroTitle}>Get In Touch. Make a Difference.</h1>
+        <div className={styles.phoneImageContainer} />
       </section>
 
       {/* Main Content Section */}
@@ -49,7 +67,7 @@ const Contact = () => {
                 <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
               </div>
               <h3 className={styles.cardTitle}>Mail</h3>
-              <p className={styles.cardValue}>tonsoflove@active<br/>foundation.co.za</p>
+              <p className={styles.cardValue}>tonsoflove@active<br />foundation.co.za</p>
             </div>
 
             {/* Address Card */}
@@ -58,7 +76,7 @@ const Contact = () => {
                 <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
               </div>
               <h3 className={styles.cardTitle}>Address</h3>
-              <p className={styles.cardValue}>72 Malbourough Road,<br/>Springfield</p>
+              <p className={styles.cardValue}>72 Malbourough Road,<br />Springfield</p>
             </div>
           </div>
 
@@ -73,7 +91,7 @@ const Contact = () => {
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            />
           </div>
         </div>
 
@@ -82,24 +100,67 @@ const Contact = () => {
           <p className={styles.formDescription}>
             Whether you have a question about our work, want to volunteer, are seeking support, or are interested in partnership, the Active Foundation team is here to help. Reach out using the form below, and we'll get back to you as soon as possible.
           </p>
-          <form onSubmit={(e) => e.preventDefault()}>
+
+          <form ref={formRef} onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
               <label className={styles.label}>Name</label>
-              <input type="text" placeholder="type your name" className={styles.input} />
+              <input
+                type="text"
+                name="name"               // ← matches {{name}} in template
+                placeholder="type your name"
+                className={styles.input}
+                required
+              />
             </div>
             <div className={styles.formGroup}>
               <label className={styles.label}>Email</label>
-              <input type="email" placeholder="type your email ,e.g ninaloveschrist@gmail.com" className={styles.input} />
+              <input
+                type="email"
+                name="email"              // ← matches {{email}} in template
+                placeholder="e.g. ninaloveschrist@gmail.com"
+                className={styles.input}
+                required
+              />
             </div>
             <div className={styles.formGroup}>
               <label className={styles.label}>Subject</label>
-              <input type="text" placeholder="title..." className={styles.input} />
+              <input
+                type="text"
+                name="title"              // ← matches {{title}} in your template
+                placeholder="title..."
+                className={styles.input}
+                required
+              />
             </div>
             <div className={styles.formGroup}>
               <label className={styles.label}>Message</label>
-              <textarea placeholder="" className={styles.textarea}></textarea>
+              <textarea
+                name="message"            // ← matches {{message}} in template
+                placeholder="Type your message here..."
+                className={styles.textarea}
+                required
+              />
             </div>
-            <button type="submit" className={styles.sendButton}>SEND NOW</button>
+
+            {/* Status feedback */}
+            {status === 'success' && (
+              <p style={{ color: 'green', fontWeight: 600, marginBottom: '10px' }}>
+                Message sent! We'll get back to you soon.
+              </p>
+            )}
+            {status === 'error' && (
+              <p style={{ color: 'red', fontWeight: 600, marginBottom: '10px' }}>
+                Something went wrong. Please try again.
+              </p>
+            )}
+
+            <button
+              type="submit"
+              className={styles.sendButton}
+              disabled={status === 'sending'}
+            >
+              {status === 'sending' ? 'SENDING...' : 'SEND NOW'}
+            </button>
           </form>
         </div>
       </section>
