@@ -48,6 +48,7 @@
   cursor: pointer;
   font-weight: 600;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .donate-btn:hover {

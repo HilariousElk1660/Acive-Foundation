@@ -271,6 +271,7 @@
   cursor: pointer;
   align-self: flex-start;
   transition: background-color 0.25s ease;
+  text-decoration: none;
 }
 
 .donateNowBtn:hover {
@@ -378,6 +379,7 @@
   white-space: nowrap;
   flex-shrink: 0;
   transition: background-color 0.25s ease;
+  text-decoration: none;
 }
 
 .applyBtn:hover {

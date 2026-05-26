@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
 import Navbar from '../../components/Navbar/Navbar';
@@ -6,24 +6,34 @@ import Footer from '../../components/Footer/Footer';
 
 const Contact = () => {
   const formRef = useRef();
-  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
+  const sectionRef = useRef();
+  const [status, setStatus] = useState('idle');
+
+  // Scroll to form if navigated with #get-in-touch hash
+  useEffect(() => {
+    if (window.location.hash === '#get-in-touch' && sectionRef.current) {
+      setTimeout(() => {
+        sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus('sending');
 
     const serviceOne = emailjs.sendForm(
-      'service_qrqtob7',        // Service 1
-      'template_w12nhap',       // Shane's notification template
+      'service_qrqtob7',
+      'template_w12nhap',
       formRef.current,
       'ZLpJZ7CehgqhiGYpW'
     );
 
     const serviceTwo = emailjs.sendForm(
-      'service_qrqtob7',        // Service 2 (your second service ID)
-      'template_9nlzm7t',       // Auto-reply template
+      'service_qrqtob7',
+      'template_9nlzm7t',
       formRef.current,
-      'ZLpJZ7CehgqhiGYpW'       // Same or different public key
+      'ZLpJZ7CehgqhiGYpW'
     );
 
     Promise.all([serviceOne, serviceTwo])
@@ -103,7 +113,8 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className={styles.formSection}>
+        {/* ↓ id added here for hash scrolling */}
+        <div id="get-in-touch" ref={sectionRef} className={styles.formSection}>
           <h2 className={styles.formTitle}>GET IN TOUCH</h2>
           <p className={styles.formDescription}>
             Whether you have a question about our work, want to volunteer, are seeking support, or are interested in partnership, the Active Foundation team is here to help. Reach out using the form below, and we'll get back to you as soon as possible.
@@ -114,7 +125,7 @@ const Contact = () => {
               <label className={styles.label}>Name</label>
               <input
                 type="text"
-                name="name"               // ← matches {{name}} in template
+                name="name"
                 placeholder="type your name"
                 className={styles.input}
                 required
@@ -124,7 +135,7 @@ const Contact = () => {
               <label className={styles.label}>Email</label>
               <input
                 type="email"
-                name="email"              // ← matches {{email}} in template
+                name="email"
                 placeholder="e.g. ninaloveschrist@gmail.com"
                 className={styles.input}
                 required
@@ -134,7 +145,7 @@ const Contact = () => {
               <label className={styles.label}>Subject</label>
               <input
                 type="text"
-                name="title"              // ← matches {{title}} in your template
+                name="title"
                 placeholder="title..."
                 className={styles.input}
                 required
@@ -143,14 +154,13 @@ const Contact = () => {
             <div className={styles.formGroup}>
               <label className={styles.label}>Message</label>
               <textarea
-                name="message"            // ← matches {{message}} in template
+                name="message"
                 placeholder="Type your message here..."
                 className={styles.textarea}
                 required
               />
             </div>
 
-            {/* Status feedback */}
             {status === 'success' && (
               <p style={{ color: 'green', fontWeight: 600, marginBottom: '10px' }}>
                 Message sent! We'll get back to you soon.
@@ -172,6 +182,7 @@ const Contact = () => {
           </form>
         </div>
       </section>
+
       <Footer />
     </div>
   );
