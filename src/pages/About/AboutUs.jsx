@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import styles from "./AboutUs.module.css";
@@ -11,7 +11,7 @@ import GOODS_IMG from "./Images/img.png";
 const FIELDS = [
   { label: "Your name",    key: "name",      placeholder: "e.g Nina"                        },
   { label: "Your address", key: "address",   placeholder: "73 Eagle East Road, Parktown"    },
-  { label: "Telephone",    key: "telephone", placeholder: "e.g (+27) 123-5678"              },
+  { label: "Telephone",    key: "telephone", placeholder: "e.g (+27) 12 356 7890"              },
   { label: "Email",        key: "email",     placeholder: "e.g nina@activefoundation.co.za" },
 ];
 
@@ -26,7 +26,16 @@ const BANKING_DETAILS = [
 
 export default function AboutUs() {
   const [form, setForm] = useState({ name: "", address: "", telephone: "", email: "" });
+  const sectionRef = useRef();
   const [copied, setCopied] = useState(null);
+
+  useEffect(() => {
+    if (window.location.hash === '#donate' && sectionRef.current) {
+      setTimeout(() => {
+        sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, []);
 
   const handleChange = (key) => (e) =>
     setForm((prev) => ({ ...prev, [key]: e.target.value }));
@@ -51,7 +60,7 @@ export default function AboutUs() {
       </section>
 
       {/* ── Main content ── */}
-      <section className={styles.mainSection}>
+      <section className={styles.mainSection} ref={sectionRef}  id="donate">
 
         <div className={styles.leftImage}>
           <img src={GOODS_IMG} alt="Donation goods in reusable bags" />

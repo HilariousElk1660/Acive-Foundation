@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import styles from "./Footer.module.css";
 
@@ -25,7 +26,7 @@ const isAlreadySubscribed = (email) => {
 
 export default function Footer() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("idle"); // 'idle' | 'sending' | 'success' | 'error' | 'invalid' | 'duplicate'
+  const [status, setStatus] = useState("idle");
 
   const handleSubscribe = () => {
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -58,10 +59,10 @@ export default function Footer() {
   };
 
   const getMessage = () => {
-    if (status === "invalid")   return { text: "Please enter a valid email address.",          color: "orange"   };
-    if (status === "duplicate") return { text: "This email is already subscribed!",            color: "orange"   };
-    if (status === "success")   return { text: "Thanks for subscribing!",                      color: "#90ee90"  };
-    if (status === "error")     return { text: "Something went wrong. Please try again.",      color: "#ff6b6b"  };
+    if (status === "invalid")   return { text: "Please enter a valid email address.",     color: "orange"  };
+    if (status === "duplicate") return { text: "This email is already subscribed!",       color: "orange"  };
+    if (status === "success")   return { text: "Thanks for subscribing!",                 color: "#90ee90" };
+    if (status === "error")     return { text: "Something went wrong. Please try again.", color: "#ff6b6b" };
     return null;
   };
 
@@ -111,10 +112,10 @@ export default function Footer() {
           <div className={styles.tagline}>One Block Can Change A Nation</div>
           <div className={styles.socialsLabel}>Check us out on our socials:</div>
           <div className={styles.socials}>
-            <a href="#" aria-label="Instagram">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
               <i className="fa-brands fa-instagram" />
             </a>
-            <a href="#" aria-label="Facebook">
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
               <i className="fa-brands fa-facebook-f" />
             </a>
           </div>
@@ -123,16 +124,16 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4>Get Involved</h4>
           <ul>
-            <li>Volunteer</li>
-            <li>Partner with us</li>
+            <li><Link to="/contact#get-in-touch">Volunteer</Link></li>
+            <li><Link to="/contact#get-in-touch">Partner with us</Link></li>
           </ul>
         </div>
 
         <div className={styles.footerCol}>
           <h4>Support</h4>
           <ul>
-            <li>Donate</li>
-            <li>Corporate Giving</li>
+            <li><Link to="/about#donate">Donate</Link></li>
+            <li><Link to="/about#donate">Corporate Giving</Link></li>
           </ul>
         </div>
 

@@ -1,4 +1,3 @@
-/* ── Base navbar ───────────────────────────────────────────── */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -10,34 +9,56 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  animation: anime 0.5s ease forwards;
 }
 
-/* ── Logo ──────────────────────────────────────────────────── */
-.navbar-logo img {
-  height: 40px;
-  width: auto;
-}
-
-/* ── Desktop links ─────────────────────────────────────────── */
 .navbar-links {
   display: flex;
   gap: 2rem;
 }
 
 .navbar-links a {
+  position: relative;
   text-decoration: none;
   margin: 0 40px;
   color: #fff;
   font-weight: 500;
-  transition: color 0.3s ease;
   font-size: 1.4rem;
+  padding-bottom: 8px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 5px;
+  background-color: #15643b;
+  border-radius: 99px;
+  transition: width 0.35s ease;
 }
 
 .navbar-links a:hover {
-  color: #666;
+  color: #15643b;
+  /* transform: translateY(-2px); */
 }
 
-/* ── Donate button ─────────────────────────────────────────── */
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+.navbar-links a.active {
+  /* color: #15643b; */
+  font-weight: 600;
+}
+
+.navbar-links a.active::after {
+  width: 100%;
+}
+
 .donate-btn {
   background-color: #15643b;
   color: #fff;
@@ -47,7 +68,7 @@
   border-radius: 50px;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   text-decoration: none;
 }
 
@@ -55,7 +76,6 @@
   background-color: #0f4d2c;
 }
 
-/* ── Hamburger button (hidden on desktop) ──────────────────── */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -80,19 +100,19 @@
   transform-origin: center;
 }
 
-/* Animate to ✕ when open */
 .hamburger.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
+
 .hamburger.open span:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
+
 .hamburger.open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ── Mobile drawer ─────────────────────────────────────────── */
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -123,17 +143,42 @@
 }
 
 .mobile-menu-links a {
+  position: relative;
   text-decoration: none;
   color: #fff;
   font-size: 1.4rem;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
-  transition: color 0.3s ease;
   letter-spacing: 0.02em;
+  padding-bottom: 6px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.mobile-menu-links a:hover {
+.mobile-menu-links a:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 4px;
+  background-color: #15643b;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.mobile-menu-links a:not(:last-child):hover {
   color: #15643b;
+}
+
+.mobile-menu-links a:hover::after,
+.mobile-menu-links a.active::after {
+  width: 100%;
+}
+
+.mobile-menu-links a.active {
+  color: #15643b;
+  font-weight: 600;
 }
 
 .mobile-donate {
@@ -142,7 +187,6 @@
   text-align: center;
 }
 
-/* ── Backdrop ──────────────────────────────────────────────── */
 .menu-backdrop {
   position: fixed;
   inset: 0;
@@ -152,12 +196,28 @@
   animation: fadeIn 0.3s ease forwards;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+@keyframes anime {
+  from {
+    opacity: 0;
+    transform: translate(0%, -40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0%, 0);
+  }
 }
 
-/* ── Responsive breakpoints ────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 1024px) {
   .navbar {
     padding: 30px 60px;
@@ -169,18 +229,16 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1259px) {
   .navbar {
     padding: 24px 24px;
   }
 
-  /* Hide desktop links and donate button */
   .navbar-links,
   .navbar-action {
     display: none;
   }
 
-  /* Show hamburger */
   .hamburger {
     display: flex;
   }
@@ -191,7 +249,4 @@
     padding: 20px 16px;
   }
 
-  .navbar-logo img {
-    height: 32px;
-  }
 }
