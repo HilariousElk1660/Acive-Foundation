@@ -169,7 +169,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr auto;
   align-items: center;
-  gap: 8px;
+  gap: 30px;
   padding: 10px 14px;
   background: #d9d9d9;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -284,7 +284,7 @@
   .formCard { padding: 32px 28px; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1119px) {
   .mainSection {
     grid-template-columns: 1fr;
     padding: 32px 20px;
@@ -294,6 +294,17 @@
 
   .leftImage {
     align-self: auto;
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .qrBlock {
+    justify-content: space-evenly;
+
+  }
+
+  .qrHint {
+    display: none;
   }
 
   .leftImage img { height: 380px; }
