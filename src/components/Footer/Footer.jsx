@@ -1,8 +1,72 @@
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import styles from "./Footer.module.css";
 
 const KIDS_IMG = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1400&q=80";
 
+const STORAGE_KEY = "af_subscribed_emails";
+
+const getSubscribedEmails = () => {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  } catch {
+    return [];
+  }
+};
+
+const saveEmail = (email) => {
+  const existing = getSubscribedEmails();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify([...existing, email.toLowerCase()]));
+};
+
+const isAlreadySubscribed = (email) => {
+  return getSubscribedEmails().includes(email.toLowerCase());
+};
+
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle"); // 'idle' | 'sending' | 'success' | 'error' | 'invalid' | 'duplicate'
+
+  const handleSubscribe = () => {
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus("invalid");
+      return;
+    }
+
+    if (isAlreadySubscribed(email)) {
+      setStatus("duplicate");
+      return;
+    }
+
+    setStatus("sending");
+
+    emailjs
+      .send(
+        "service_qrqtob7",
+        "template_9nlzm7t",
+        { email },
+        "ZLpJZ7CehgqhiGYpW"
+      )
+      .then(() => {
+        saveEmail(email);
+        setStatus("success");
+        setEmail("");
+      })
+      .catch(() => {
+        setStatus("error");
+      });
+  };
+
+  const getMessage = () => {
+    if (status === "invalid")   return { text: "Please enter a valid email address.",          color: "orange"   };
+    if (status === "duplicate") return { text: "This email is already subscribed!",            color: "orange"   };
+    if (status === "success")   return { text: "Thanks for subscribing!",                      color: "#90ee90"  };
+    if (status === "error")     return { text: "Something went wrong. Please try again.",      color: "#ff6b6b"  };
+    return null;
+  };
+
+  const message = getMessage();
+
   return (
     <footer>
       <div className={styles.secondaryHero}>
@@ -11,15 +75,31 @@ export default function Footer() {
 
       <div className={styles.newsletterBar}>
         <p>Become a partner in change today</p>
-        <div className={styles.newsletterForm}>
-          <input
-            className={styles.newsletterInput}
-            type="email"
-            placeholder="Type your email here"
-          />
-          <button className={styles.newsletterBtn} type="button">
-            Subscribe
-          </button>
+        <div>
+          <div className={styles.newsletterForm}>
+            <input
+              className={styles.newsletterInput}
+              type="email"
+              placeholder="Type your email here"
+              value={email}
+              onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
+              onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
+              disabled={status === "sending"}
+            />
+            <button
+              className={styles.newsletterBtn}
+              type="button"
+              onClick={handleSubscribe}
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? "..." : "Subscribe"}
+            </button>
+          </div>
+          {message && (
+            <p style={{ color: message.color, fontSize: "0.78rem", marginTop: "6px", textAlign: "right" }}>
+              {message.text}
+            </p>
+          )}
         </div>
       </div>
 

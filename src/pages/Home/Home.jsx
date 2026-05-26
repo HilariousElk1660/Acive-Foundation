@@ -1,29 +1,30 @@
-import React from "react";
-import styles from "./Home.module.css";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
+import React from 'react';
+import styles from './Home.module.css';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+import { Link } from 'react-router-dom';
 
-import heroImage from "./Images/banner.jpg";
-import rectangle20 from "./Images/rectangle20.png";
-import rectangle22 from "./Images/rectangle22.png";
-import rectangle23 from "./Images/rectangle23.png";
-import rectangle24 from "./Images/rectangle24.png";
-import rectangle57 from "./Images/rectangle57.png";
-import rectangle58 from "./Images/rectangle58.png";
-import rectangle52 from "./Images/rectangle52.png";
+import heroImage from './Images/banner.jpg';
+import rectangle20 from './Images/rectangle20.png';
+import rectangle22 from './Images/rectangle22.png';
+import rectangle23 from './Images/rectangle23.png';
+import rectangle24 from './Images/rectangle24.png';
+import rectangle57 from './Images/rectangle57.png';
+import rectangle58 from './Images/rectangle58.png';
+import rectangle52 from './Images/rectangle52.png';
 
 const programCards = [
-  { title: "TONS OF LOVE", image: rectangle20 },
-  { title: "CLOTHING", image: rectangle22 },
-  { title: "EDUCATION", image: rectangle23 },
-  { title: "OUTREACH", image: rectangle24 },
+  { title: 'TONS OF LOVE', image: rectangle20 },
+  { title: 'CLOTHING',     image: rectangle22 },
+  { title: 'EDUCATION',    image: rectangle23 },
+  { title: 'OUTREACH',     image: rectangle24 },
 ];
 
-const values = ["Relief", "Unity", "Kindness", "Humanity", "Support"];
+const values = ['Relief', 'Unity', 'Kindness', 'Humanity', 'Support'];
 
 const donationCards = [
-  { title: "HELP WITH EDUCATION", image: rectangle58 },
-  { title: "HELP WITH FOOD", image: rectangle57 },
+  { title: 'HELP WITH EDUCATION', image: rectangle58 },
+  { title: 'HELP WITH FOOD',      image: rectangle57 },
 ];
 
 export const Homepage = () => {
@@ -39,10 +40,10 @@ export const Homepage = () => {
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
             <h1 className={styles.heroHeading}>
-              The Active Foundation Trust revolves around the fact that{" "}
+              The Active Foundation Trust revolves around the fact that{' '}
               <span className={styles.heroAccent}>"One Block Can Change A Nation"</span>
             </h1>
-            <a href="#donate" className={styles.donateBtn}>DONATE</a>
+            <Link to="/contact#get-in-touch" className={styles.donateBtn}>DONATE</Link>
           </div>
         </div>
       </section>
@@ -65,7 +66,6 @@ export const Homepage = () => {
 
       {/* ── Donation ── */}
       <section className={styles.donationSection}>
-        {/* Values bar */}
         <div className={styles.valuesBar}>
           <div className={styles.container}>
             <div className={styles.valuesRow}>
@@ -81,7 +81,6 @@ export const Homepage = () => {
           </div>
         </div>
 
-        {/* Donation cards */}
         <div className={styles.donationBg}>
           <div className={styles.container}>
             <div className={styles.donationHeader}>
@@ -98,7 +97,7 @@ export const Homepage = () => {
                     <img src={card.image} alt={`Donation: ${card.title}`} className={styles.donationCardImg} />
                     <div className={styles.donationCardBody}>
                       <p className={styles.donationCardTitle}>{card.title}</p>
-                      <button className={styles.donateNowBtn}>Donate Now</button>
+                      <Link to="/contact#get-in-touch" className={styles.donateNowBtn}>Donate Now</Link>
                     </div>
                   </div>
                 ))}
@@ -148,7 +147,7 @@ export const Homepage = () => {
                   Join our team and help us change our community, one block at a time! Volunteers are the heart of our work. By giving just a little of your time, you can make a big difference in your neighborhood.
                 </p>
               </div>
-              <button className={styles.applyBtn}>APPLY NOW</button>
+              <Link to="/contact#get-in-touch" className={styles.applyBtn}>APPLY NOW</Link>
             </div>
           </div>
         </div>
