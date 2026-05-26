@@ -136,8 +136,8 @@
 
 /* ── Payment section (banking + QR) ───────────────────────── */
 .paymentSection {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 20px 28px;
   align-items: stretch;
 }
@@ -250,7 +250,7 @@
   padding: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
   border: 1.5px solid rgba(0, 0, 0, 0.1);
-  width: 100%;
+  width: 50%;
   box-sizing: border-box;
   flex: 1;
   display: flex;
@@ -350,11 +350,6 @@
     padding: 0 16px;
   }
 
-  .paymentSection {
-    grid-template-columns: 1fr;
-    align-items: start;
-  }
-
   .qrBlock {
     flex-direction: row;
     align-items: center;
@@ -364,8 +359,7 @@
 
   .qrWrapper {
     flex: unset;
-    width: 120px;
-    height: 120px;
+    width: 200px;
   }
 
   .qrSvg {

@@ -1,0 +1,502 @@
+.main {
+  background-color: #fff;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.hero {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #fff;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(44, 42, 42, 0.68);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  padding: 56px 24px 72px;
+  max-width: 1140px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.heroEyebrow {
+  font-size: clamp(11px, 1vw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #ff7d00;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.heroHeading {
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 18px;
+  color: #fff;
+}
+
+.heroAccent {
+  color: #ff7d00;
+}
+
+.heroSub {
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 auto;
+  max-width: 560px;
+  line-height: 1.55;
+}
+
+.introBanner {
+  padding: 64px 0 56px;
+  text-align: center;
+}
+
+.introHeading {
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 20px;
+  color: #1a1a1a;
+}
+
+.introAccent {
+  color: #ff7d00;
+}
+
+.introBody {
+  font-size: clamp(15px, 1.5vw, 19px);
+  font-weight: 400;
+  color: #444;
+  max-width: 780px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.valuesBar {
+  background-color: #ff7d00;
+  padding: 10px 0;
+}
+
+.valuesRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 4px;
+}
+
+.valueItem {
+  color: #fff;
+  font-size: clamp(13px, 1.3vw, 18px);
+  font-weight: 300;
+}
+
+.valueDot {
+  color: #fff;
+  font-size: clamp(13px, 1.3vw, 18px);
+}
+
+.sectionTitle {
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 12px;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+}
+
+.sectionSub {
+  text-align: center;
+  font-size: clamp(14px, 1.3vw, 18px);
+  color: #555;
+  max-width: 620px;
+  margin: 0 auto 56px;
+  line-height: 1.6;
+}
+
+.story {
+  padding: 64px 0 80px;
+  background-color: #fafafa;
+}
+
+.roadmap {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.roadmapRow {
+    margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  padding-bottom: 0;
+}
+
+.roadmapRowReverse {
+  direction: rtl;
+}
+
+.roadmapRowReverse > * {
+  direction: ltr;
+}
+
+.curveSvg {
+  position: absolute;
+  bottom: -48px;
+  left: 0;
+  width: 100%;
+  height: 96px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.roadmapImgWrap {
+  position: relative;
+  z-index: 2;
+  border-radius: 999px 0 0 999px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  max-height: 300px;
+  border: 5px solid #166d42;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  background-color: #fff;
+}
+
+.roadmapRowReverse .roadmapImgWrap {
+  border-radius: 0 999px 999px 0;
+}
+
+.roadmapImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.roadmapImgWrap:hover .roadmapImg {
+  transform: scale(1.04);
+}
+
+.roadmapCard {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 8px 0;
+}
+
+.roadmapIcon {
+  font-size: 32px;
+  line-height: 1;
+  background: #fff3e8;
+  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.roadmapTitle {
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.roadmapBody {
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: #444;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 500px;
+}
+
+.roadmapSpacer {
+  height: 80px;
+}
+
+.team {
+  padding: 64px 0 72px;
+  background-color: #fff;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 8px;
+}
+
+.teamCard {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.teamCard:hover {
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.teamImgWrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.teamImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.teamCard:hover .teamImg {
+  transform: scale(1.04);
+}
+
+.teamInfo {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: #fff;
+}
+
+.teamName {
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.teamRole {
+  font-size: 13px;
+  font-weight: 400;
+  color: #ff7d00;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cta {
+  padding: 0 0 64px;
+  background-color: #fafafa;
+}
+
+.ctaCard {
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.ctaText {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+}
+
+.ctaHeading {
+  font-size: clamp(24px, 2.8vw, 38px);
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.ctaBody {
+  font-size: clamp(14px, 1.3vw, 18px);
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.ctaBtns {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.ctaBtnPrimary {
+  background-color: #ff7d00;
+  color: #fff;
+  border-radius: 999px;
+  padding: 14px 34px;
+  font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.25s ease;
+}
+
+.ctaBtnPrimary:hover {
+  background-color: #e67000;
+}
+
+.ctaBtnSecondary {
+  background-color: #166d42;
+  color: #fff;
+  border-radius: 999px;
+  padding: 14px 34px;
+  font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.25s ease;
+}
+
+.ctaBtnSecondary:hover {
+  background-color: #125b36;
+}
+
+@media (max-width: 1024px) {
+  .ctaCard {
+    padding: 40px 36px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero { min-height: 520px; }
+  .introBanner { padding: 48px 0 40px; }
+
+  .roadmapRow {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .roadmapRowReverse { direction: ltr; }
+
+  .curveSvg { display: none; }
+
+  .roadmapImgWrap {
+    max-height: 280px;
+    border-radius: 20px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .roadmapRowReverse .roadmapImgWrap {
+    border-radius: 20px;
+  }
+
+  .story { padding: 48px 0 56px; }
+
+  .teamGrid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  .ctaCard {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 28px;
+    border-radius: 16px;
+  }
+
+  .ctaText { max-width: 100%; }
+
+  .ctaBtns { width: 100%; }
+
+  .ctaBtnPrimary,
+  .ctaBtnSecondary {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero { min-height: 420px; }
+  .heroContent { padding: 36px 16px 48px; }
+  .introBanner { padding: 40px 0 32px; }
+  .introHeading br { display: none; }
+  .sectionSub { margin-bottom: 32px; }
+
+  .roadmap { gap: 28px; }
+
+  .roadmapImgWrap {
+    max-height: 220px;
+    border-radius: 14px;
+  }
+
+  .roadmapIcon { width: 48px; height: 48px; font-size: 26px; }
+
+  .team { padding: 48px 0 56px; }
+  .teamGrid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .teamInfo { padding: 12px 14px 14px; }
+
+  .cta { padding: 0 0 48px; }
+  .ctaCard { padding: 28px 20px; border-radius: 14px; }
+  .ctaBtns { flex-direction: column; gap: 10px; }
+  .ctaBtnPrimary, .ctaBtnSecondary {
+    width: 100%;
+    text-align: center;
+    padding: 13px 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero { min-height: 360px; }
+  .heroContent { padding: 28px 16px 40px; }
+  .valuesRow { gap: 6px 2px; }
+
+  .roadmapImgWrap {
+    max-height: 180px;
+    border-radius: 12px;
+  }
+
+  .roadmapRow { gap: 14px; }
+
+  .teamGrid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin-inline: auto;
+    gap: 16px;
+  }
+
+  .ctaCard { padding: 24px 16px; }
+}

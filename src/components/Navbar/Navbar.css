@@ -150,7 +150,6 @@
   font-weight: 500;
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.02em;
-  padding-bottom: 6px;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
