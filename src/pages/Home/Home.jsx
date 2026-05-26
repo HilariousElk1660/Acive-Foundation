@@ -43,7 +43,7 @@ export const Homepage = () => {
               The Active Foundation Trust revolves around the fact that{' '}
               <span className={styles.heroAccent}>"One Block Can Change A Nation"</span>
             </h1>
-            <Link to="/about#donate" className={styles.donateBtn}>DONATE</Link>
+            <Link to="/donate#donate" className={styles.donateBtn}>DONATE</Link>
           </div>
         </div>
       </section>

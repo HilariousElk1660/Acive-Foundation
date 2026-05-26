@@ -73,7 +73,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-action">
-          <Link to="/about#donate" className="donate-btn">
+          <Link to="/donate" className="donate-btn">
             Donate
           </Link>
         </div>
@@ -128,7 +128,7 @@ const Navbar = () => {
           </NavLink>
 
           <Link
-            to="/about#donate"
+            to="/donate"
             className="donate-btn mobile-donate"
             onClick={closeMenu}
           >

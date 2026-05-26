@@ -1,19 +1,19 @@
 import { useState, useRef, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import styles from "./AboutUs.module.css";
+import styles from "./Donate.module.css";
 
 import BANNER_IMG from "./Images/banner.png";
 import GOODS_IMG from "./Images/img.png";
 
 // ── Constants ──────────────────────────────────────────────────────────────────
 
-const FIELDS = [
-  { label: "Your name",    key: "name",      placeholder: "e.g Nina"                        },
-  { label: "Your address", key: "address",   placeholder: "73 Eagle East Road, Parktown"    },
-  { label: "Telephone",    key: "telephone", placeholder: "e.g (+27) 12 356 7890"              },
-  { label: "Email",        key: "email",     placeholder: "e.g nina@activefoundation.co.za" },
-];
+// const FIELDS = [
+//   { label: "Your name",    key: "name",      placeholder: "e.g Nina"                        },
+//   { label: "Your address", key: "address",   placeholder: "73 Eagle East Road, Parktown"    },
+//   { label: "Telephone",    key: "telephone", placeholder: "e.g (+27) 12 356 7890"              },
+//   { label: "Email",        key: "email",     placeholder: "e.g nina@activefoundation.co.za" },
+// ];
 
 const BANKING_DETAILS = [
   { label: "Account Name",   value: "ACTIVE FOUNDATION TRUST" },
@@ -24,7 +24,7 @@ const BANKING_DETAILS = [
 
 // ── Component ──────────────────────────────────────────────────────────────────
 
-export default function AboutUs() {
+export default function Donate() {
   const [form, setForm] = useState({ name: "", address: "", telephone: "", email: "" });
   const sectionRef = useRef();
   const [copied, setCopied] = useState(null);
@@ -75,7 +75,7 @@ export default function AboutUs() {
           <div className={styles.formCard}>
             <div className={styles.formGrid}>
 
-              {/* Personal detail fields */}
+              {/* Personal detail fields
               {FIELDS.map(({ label, key, placeholder }) => (
                 <div className={styles.fieldGroup} key={key}>
                   <label className={styles.fieldLabel}>{label}</label>
@@ -87,7 +87,7 @@ export default function AboutUs() {
                     onChange={handleChange(key)}
                   />
                 </div>
-              ))}
+              ))} */}
 
               {/* ── Banking + QR section ── */}
               <div className={`${styles.paymentSection} ${styles.formGridFull}`}>

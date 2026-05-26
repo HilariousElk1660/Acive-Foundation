@@ -115,7 +115,7 @@ export default function Footer() {
             <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
               <i className="fa-brands fa-instagram" />
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <a href="https://www.facebook.com/tonsofloveaf/" target="_blank" rel="noreferrer" aria-label="Facebook">
               <i className="fa-brands fa-facebook-f" />
             </a>
           </div>
@@ -132,8 +132,8 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4>Support</h4>
           <ul>
-            <li><Link to="/about#donate">Donate</Link></li>
-            <li><Link to="/about#donate">Corporate Giving</Link></li>
+            <li><Link to="/donate#donate">Donate</Link></li>
+            <li><Link to="/donate#donate">Corporate Giving</Link></li>
           </ul>
         </div>
 

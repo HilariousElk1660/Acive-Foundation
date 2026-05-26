@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
-import AboutUs from "./pages/About/AboutUs";
+import About from "./pages/About/About";
+import Donate from "./pages/Donate/Donate";
 import Projects from "./pages/Projects/Projects";
 import Contact from "./pages/Contact/Contact";
 
@@ -10,7 +11,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUs />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/donate" element={<Donate />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
