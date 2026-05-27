@@ -112,7 +112,7 @@ export default function Footer() {
           <div className={styles.tagline}>One Block Can Change A Nation</div>
           <div className={styles.socialsLabel}>Check us out on our socials:</div>
           <div className={styles.socials}>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/theactivefoundationtrust" target="_blank" rel="noreferrer" aria-label="Instagram">
               <i className="fa-brands fa-instagram" />
             </a>
             <a href="https://www.facebook.com/tonsofloveaf/" target="_blank" rel="noreferrer" aria-label="Facebook">
