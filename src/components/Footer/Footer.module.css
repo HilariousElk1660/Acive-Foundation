@@ -16,7 +16,7 @@
 }
 
 .newsletterBar {
-  background: #1a6b3a;
+  background: #ff7d00;
   padding: 28px 64px;
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@
   height: 52px;
   padding: 0 24px;
   background: #fff;
-  color: #1a6b3a;
+  color: #ff7d00;
   border: 2px solid #fff;
   border-radius: 0 6px 6px 0;
   font-family: 'Poppins', sans-serif;
@@ -169,7 +169,7 @@
 }
 
 .footerCol ul li a:hover {
-  color: #1a6b3a;
+  color: #e67000;
 }
 
 .footerBottomWrap {

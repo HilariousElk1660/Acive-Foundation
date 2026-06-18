@@ -36,13 +36,13 @@
   transform: translateX(-50%);
   width: 0%;
   height: 5px;
-  background-color: #15643b;
+  background-color: #ff7d00;
   border-radius: 99px;
   transition: width 0.35s ease;
 }
 
 .navbar-links a:hover {
-  color: #15643b;
+  color: #e67000;
   /* transform: translateY(-2px); */
 }
 
@@ -51,7 +51,7 @@
 }
 
 .navbar-links a.active {
-  /* color: #15643b; */
+  /* color: #ff7d00; */
   font-weight: 600;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .donate-btn {
-  background-color: #15643b;
+  background-color: #ff7d00;
   color: #fff;
   border: none;
   padding: 15px 25px;
@@ -73,7 +73,7 @@
 }
 
 .donate-btn:hover {
-  background-color: #0f4d2c;
+  background-color: #e67000;
 }
 
 .hamburger {
@@ -161,13 +161,12 @@
   transform: translateX(-50%);
   width: 0%;
   height: 4px;
-  background-color: #15643b;
   border-radius: 999px;
   transition: width 0.3s ease;
 }
 
 .mobile-menu-links a:not(:last-child):hover {
-  color: #15643b;
+  color: #e67000;
 }
 
 .mobile-menu-links a:hover::after,
@@ -176,7 +175,7 @@
 }
 
 .mobile-menu-links a.active {
-  color: #15643b;
+  color: #ff7d00;
   font-weight: 600;
 }
 

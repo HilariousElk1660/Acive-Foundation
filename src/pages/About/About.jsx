@@ -209,8 +209,8 @@ export const AboutUs = () => {
               </p>
             </div>
             <div className={styles.ctaBtns}>
-              <Link to="/donate#donate" className={styles.ctaBtnPrimary}>DONATE NOW</Link>
-              <Link to="/contact#get-in-touch" className={styles.ctaBtnSecondary}>VOLUNTEER</Link>
+              <Link to="/donate" className={styles.ctaBtnPrimary}>DONATE NOW</Link>
+              <Link to="/contact" className={styles.ctaBtnSecondary}>VOLUNTEER</Link>
             </div>
           </div>
         </div>

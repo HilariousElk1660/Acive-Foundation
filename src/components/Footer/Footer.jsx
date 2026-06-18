@@ -124,16 +124,16 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4>Get Involved</h4>
           <ul>
-            <li><Link to="/contact#get-in-touch">Volunteer</Link></li>
-            <li><Link to="/contact#get-in-touch">Partner with us</Link></li>
+            <li><Link to="/contact">Volunteer</Link></li>
+            <li><Link to="/contact">Partner with us</Link></li>
           </ul>
         </div>
 
         <div className={styles.footerCol}>
           <h4>Support</h4>
           <ul>
-            <li><Link to="/donate#donate">Donate</Link></li>
-            <li><Link to="/donate#donate">Corporate Giving</Link></li>
+            <li><Link to="/donate">Donate</Link></li>
+            <li><Link to="/donate">Corporate Giving</Link></li>
           </ul>
         </div>
 

@@ -1,19 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Projects.module.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 
 // ── Asset imports ──────────────────────────────────────────────────────────────
-import heroImg        from '../../assets/images/projectbanner.png';
-import volunteerBgImg from '../../assets/images/volunteer image.png';
+import heroImg        from '../../assets/images/projectbanner.jpg';
+import volunteerBgImg from '../../assets/images/volunteer_image.png';
 
-import img2  from '../../assets/images/2.png';
-import img3  from '../../assets/images/3.png';
-import img4  from '../../assets/images/4.png';
-import img5  from '../../assets/images/5.png';
+import img2  from '../../assets/images/2.jpg';
+import img3  from '../../assets/images/3.jpg';
+import img4  from '../../assets/images/4.jpg';
+import img5  from '../../assets/images/5.jpg';
 import img6  from '../../assets/images/6.png';
-import img7  from '../../assets/images/7.png';
-import img9  from '../../assets/images/9.png';
+import img7  from '../../assets/images/8.jpg';
+import img9  from '../../assets/images/9.jpg';
 import img10 from '../../assets/images/10.png';
 import img11 from '../../assets/images/11.png';
 import img12 from '../../assets/images/12.png';
@@ -54,9 +55,9 @@ const Projects = () => {
           <Navbar />
         </div>
         <div className={styles.heroOverlay} />
-        <div className={styles.heroContent}>
+        {/* <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>Our Work in Action</h1>
-        </div>
+        </div> */}
       </section>
 
       {/* ── Projects grid ── */}
@@ -106,7 +107,7 @@ const Projects = () => {
           </p>
         </div>
         <div className={styles.volunteerAction}>
-          <button className={styles.applyButton}>APPLY NOW</button>
+          <Link to="/donate" className={styles.applyButton}>APPLY NOW</Link>
         </div>
       </section>
 

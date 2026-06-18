@@ -129,11 +129,6 @@
   box-sizing: border-box;
 }
 
-.fieldInput:focus {
-  border-color: #1a6b3a;
-  color: #111;
-}
-
 /* ── Payment section (banking + QR) ───────────────────────── */
 .paymentSection {
   display: flex;

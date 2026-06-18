@@ -43,7 +43,7 @@ export const Homepage = () => {
               The Active Foundation Trust revolves around the fact that{' '}
               <span className={styles.heroAccent}>"One Block Can Change A Nation"</span>
             </h1>
-            <Link to="/donate#donate" className={styles.donateBtn}>DONATE</Link>
+            <Link to="/donate" className={styles.donateBtn}>DONATE</Link>
           </div>
         </div>
       </section>
@@ -97,7 +97,7 @@ export const Homepage = () => {
                     <img src={card.image} alt={`Donation: ${card.title}`} className={styles.donationCardImg} />
                     <div className={styles.donationCardBody}>
                       <p className={styles.donationCardTitle}>{card.title}</p>
-                      <Link to="/contact#get-in-touch" className={styles.donateNowBtn}>Donate Now</Link>
+                      <Link to="/contact" className={styles.donateNowBtn}>Donate Now</Link>
                     </div>
                   </div>
                 ))}
@@ -147,7 +147,7 @@ export const Homepage = () => {
                   Join our team and help us change our community, one block at a time! Volunteers are the heart of our work. By giving just a little of your time, you can make a big difference in your neighborhood.
                 </p>
               </div>
-              <Link to="/contact#get-in-touch" className={styles.applyBtn}>APPLY NOW</Link>
+              <Link to="/contact" className={styles.applyBtn}>APPLY NOW</Link>
             </div>
           </div>
         </div>

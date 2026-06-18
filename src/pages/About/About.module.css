@@ -193,7 +193,7 @@
   overflow: hidden;
   aspect-ratio: 4 / 3;
   max-height: 300px;
-  border: 5px solid #166d42;
+  border: 5px solid #ff7d00;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   background-color: #fff;
 }
@@ -381,7 +381,7 @@
 }
 
 .ctaBtnSecondary {
-  background-color: #166d42;
+  background-color: #ff7d00;
   color: #fff;
   border-radius: 999px;
   padding: 14px 34px;
@@ -394,7 +394,7 @@
 }
 
 .ctaBtnSecondary:hover {
-  background-color: #125b36;
+  background-color: #e67000;
 }
 
 @media (max-width: 1024px) {

@@ -220,7 +220,7 @@
 }
 
 .arrowBtn:hover {
-  color: #ff7d00;
+  color: #e67000;
 }
 
 .donationGrid {
@@ -261,7 +261,7 @@
 }
 
 .donateNowBtn {
-  background-color: #166d42;
+  background-color: #ff7d00;
   color: #fff;
   border: none;
   border-radius: 999px;
@@ -275,7 +275,7 @@
 }
 
 .donateNowBtn:hover {
-  background-color: #125b36;
+  background-color: #e67000;
 }
 
 /* ══════════════════════════════════════════════
