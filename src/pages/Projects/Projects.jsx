@@ -107,7 +107,7 @@ const Projects = () => {
           </p>
         </div>
         <div className={styles.volunteerAction}>
-          <Link to="/donate" className={styles.applyButton}>APPLY NOW</Link>
+          <Link to="/contact" className={styles.applyButton}>APPLY NOW</Link>
         </div>
       </section>
 
