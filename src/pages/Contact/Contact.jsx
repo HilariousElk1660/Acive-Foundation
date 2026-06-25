@@ -4,12 +4,231 @@ import styles from './Contact.module.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 
+const contactBlocks = [
+  {
+    id: "instagram",
+    icon: (
+      <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+      </svg>
+    ),
+    label: "INSTAGRAM",
+    value: "theactivefoundationtrust",
+    action: {
+      label: "Open Instagram",
+      description: "View @theactivefoundationtrust on Instagram",
+      url: "https://www.instagram.com/theactivefoundationtrust",
+      buttonText: "Go to Instagram",
+      external: true,
+    },
+  },
+  {
+    id: "phone",
+    icon: (
+      <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1.01A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" />
+      </svg>
+    ),
+    label: "PHONE",
+    value: "(011) 493 4805",
+    action: {
+      label: "Call Us",
+      description: "Tap to call Active Foundation directly.",
+      url: "tel:+27114934805",
+      buttonText: "Call (011) 493 4805",
+      external: false,
+    },
+  },
+  {
+    id: "mail",
+    icon: (
+      <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+      </svg>
+    ),
+    label: "MAIL",
+    value: "tonsoflove@activefoundation.co.za",
+    action: {
+      label: "Send an Email",
+      description: "Open your email app to contact Active Foundation.",
+      url: "mailto:tonsoflove@activefoundation.co.za",
+      buttonText: "Open Email App",
+      external: false,
+    },
+  },
+  {
+    id: "address",
+    icon: (
+      <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+      </svg>
+    ),
+    label: "ADDRESS",
+    value: "72 Malbourough Road, Springfield",
+    action: {
+      label: "Get Directions",
+      description: "Open Google Maps to 72 Marlborough Road, Springfield.",
+      url: "https://www.google.com/maps/search/?api=1&query=72+Marlborough+Road+Springfield+Johannesburg",
+      buttonText: "Open in Google Maps",
+      external: true,
+    },
+  },
+];
+
+function Modal({ block, onClose }) {
+  if (!block) return null;
+
+  return (
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        backgroundColor: "rgba(0,0,0,0.45)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: 1000,
+        padding: "1rem",
+      }}
+      onClick={onClose}
+    >
+      <div
+        style={{
+          backgroundColor: "#fff",
+          borderRadius: "16px",
+          padding: "2rem",
+          maxWidth: "380px",
+          width: "100%",
+          boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
+          position: "relative",
+          animation: "popIn 0.18s ease-out",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          style={{
+            position: "absolute",
+            top: "1rem",
+            right: "1rem",
+            background: "#f0f0f0",
+            border: "none",
+            borderRadius: "50%",
+            width: "32px",
+            height: "32px",
+            cursor: "pointer",
+            fontSize: "18px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#555",
+            lineHeight: 1,
+          }}
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+        {/* Label & value */}
+        <p
+          style={{
+            fontSize: "11px",
+            letterSpacing: "0.12em",
+            color: "#9db8a8",
+            fontWeight: 600,
+            marginBottom: "1rem",
+            fontFamily: "sans-serif",
+          }}
+        >
+          {block.label}
+        </p>
+        <h2
+          style={{
+            fontSize: "1.05rem",
+            fontWeight: 600,
+            color: "#1a1a1a",
+            marginBottom: "0.5rem",
+            fontFamily: "sans-serif",
+          }}
+        >
+          {block.action.label}
+        </h2>
+        <p
+          style={{
+            fontSize: "0.875rem",
+            color: "#666",
+            marginBottom: "1.5rem",
+            fontFamily: "sans-serif",
+            lineHeight: 1.5,
+          }}
+        >
+          {block.action.description}
+        </p>
+
+        {/* CTA */}
+        <a
+          href={block.action.url}
+          target={block.action.external ? "_blank" : "_self"}
+          rel="noopener noreferrer"
+          style={{
+            display: "block",
+            width: "100%",
+            backgroundColor: "#e67300",
+            color: "#fff",
+            textAlign: "center",
+            padding: "0.85rem 1rem",
+            borderRadius: "8px",
+            fontWeight: 600,
+            fontSize: "0.9rem",
+            textDecoration: "none",
+            fontFamily: "sans-serif",
+            letterSpacing: "0.02em",
+            transition: "background 0.15s",
+            boxSizing: "border-box",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#cc6600")}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#e67300")}
+        >
+          {block.action.buttonText}
+        </a>
+
+        {/* Dismiss */}
+        <button
+          onClick={onClose}
+          style={{
+            display: "block",
+            width: "100%",
+            marginTop: "0.75rem",
+            background: "none",
+            border: "none",
+            color: "#333",
+            fontSize: "0.85rem",
+            cursor: "pointer",
+            fontFamily: "sans-serif",
+            padding: "0.4rem",
+          }}
+        >
+          Dismiss
+        </button>
+      </div>
+
+      <style>{`
+        @keyframes popIn {
+          from { opacity: 0; transform: scale(0.93) translateY(8px); }
+          to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
 const Contact = () => {
   const formRef = useRef();
   const sectionRef = useRef();
   const [status, setStatus] = useState('idle');
+  const [activeBlock, setActiveBlock] = useState(null);
 
-  // Scroll to form if navigated with #get-in-touch hash
   useEffect(() => {
     if (window.location.hash === '#get-in-touch' && sectionRef.current) {
       setTimeout(() => {
@@ -61,41 +280,24 @@ const Contact = () => {
       <section className={styles.mainSection}>
         <div className={styles.leftColumn}>
           <div className={styles.infoGrid}>
-            {/* Instagram Card */}
-            <div className={styles.infoCard}>
-              <div className={styles.cardIcon}>
-                <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+            {contactBlocks.map((block) => (
+              <div
+                key={block.id}
+                className={styles.infoCard}
+                onClick={() => setActiveBlock(block)}
+                style={{ cursor: "pointer" }}
+              >
+                <div className={styles.cardIcon}>{block.icon}</div>
+                <h3 className={styles.cardTitle}>{block.label.charAt(0) + block.label.slice(1).toLowerCase()}</h3>
+                <p className={styles.cardValue}>
+                  {block.id === "mail"
+                    ? <>tonsoflove@active<br />foundation.co.za</>
+                    : block.id === "address"
+                    ? <>72 Malbourough Road,<br />Springfield</>
+                    : block.value}
+                </p>
               </div>
-              <h3 className={styles.cardTitle}>Instagram</h3>
-              <p className={styles.cardValue}>theactivefoundationtrust</p>
-            </div>
-
-            {/* Phone Card */}
-            <div className={styles.infoCard}>
-              <div className={styles.cardIcon}>
-                <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1.01A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" /></svg>
-              </div>
-              <h3 className={styles.cardTitle}>Phone</h3>
-              <p className={styles.cardValue}>(011) 493 4805</p>
-            </div>
-
-            {/* Mail Card */}
-            <div className={styles.infoCard}>
-              <div className={styles.cardIcon}>
-                <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
-              </div>
-              <h3 className={styles.cardTitle}>Mail</h3>
-              <p className={styles.cardValue}>tonsoflove@active<br />foundation.co.za</p>
-            </div>
-
-            {/* Address Card */}
-            <div className={styles.infoCard}>
-              <div className={styles.cardIcon}>
-                <svg width="35" height="35" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" /></svg>
-              </div>
-              <h3 className={styles.cardTitle}>Address</h3>
-              <p className={styles.cardValue}>72 Malbourough Road,<br />Springfield</p>
-            </div>
+            ))}
           </div>
 
           {/* Google Maps Iframe */}
@@ -113,7 +315,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* ↓ id added here for hash scrolling */}
+        {/* Form Section */}
         <div id="get-in-touch" ref={sectionRef} className={styles.formSection}>
           <h2 className={styles.formTitle}>GET IN TOUCH</h2>
           <p className={styles.formDescription}>
@@ -123,42 +325,19 @@ const Contact = () => {
           <form ref={formRef} onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
               <label className={styles.label}>Name</label>
-              <input
-                type="text"
-                name="name"
-                placeholder="type your name"
-                className={styles.input}
-                required
-              />
+              <input type="text" name="name" placeholder="type your name" className={styles.input} required />
             </div>
             <div className={styles.formGroup}>
               <label className={styles.label}>Email</label>
-              <input
-                type="email"
-                name="email"
-                placeholder="e.g. ninaloveschrist@gmail.com"
-                className={styles.input}
-                required
-              />
+              <input type="email" name="email" placeholder="e.g. ninaloveschrist@gmail.com" className={styles.input} required />
             </div>
             <div className={styles.formGroup}>
               <label className={styles.label}>Subject</label>
-              <input
-                type="text"
-                name="title"
-                placeholder="title..."
-                className={styles.input}
-                required
-              />
+              <input type="text" name="title" placeholder="title..." className={styles.input} required />
             </div>
             <div className={styles.formGroup}>
               <label className={styles.label}>Message</label>
-              <textarea
-                name="message"
-                placeholder="Type your message here..."
-                className={styles.textarea}
-                required
-              />
+              <textarea name="message" placeholder="Type your message here..." className={styles.textarea} required />
             </div>
 
             {status === 'success' && (
@@ -182,6 +361,9 @@ const Contact = () => {
           </form>
         </div>
       </section>
+
+      {/* Modal */}
+      <Modal block={activeBlock} onClose={() => setActiveBlock(null)} />
 
       <Footer />
     </div>
